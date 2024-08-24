@@ -16,12 +16,14 @@ body{
    perspective: 1000px;
    margin-bottom: 1em;
    padding: 1em;
+
 }
 .header{
     display: flex;
     justify-content: space-around;
     font-size: 1.2em;
     align-items: center;
+   
 }
 .parent_box{
     display: grid;
@@ -109,18 +111,25 @@ button{
 
 @media (max-width:768px){
     .container{
-        transform: scale(.8);
+        transform: scale(1);
+    }
+    .parent_box{
+        grid-template-columns: repeat(5,1fr);
     }
 }
 
 @media (max-width:540px){
     .container{
-        transform: scale(.6);
+        transform: scale(.7);
     }
 }
 
 @media (max-width:430px){
     .container{
-        transform: scale(.4);
+        transform: scale(.7);
+      
+    }
+    .parent_box{
+        grid-template-columns: repeat(4,1fr);
     }
 }
