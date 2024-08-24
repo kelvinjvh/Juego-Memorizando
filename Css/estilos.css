@@ -126,7 +126,7 @@ button{
 
 @media (max-width:430px){
     .container{
-        transform: scale(.7);
+        transform: scale(.6);
       
     }
     .parent_box{
