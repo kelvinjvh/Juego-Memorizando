@@ -9,153 +9,136 @@
   </head>
   <body>
 
-      <div class="container" id="container">
-        <div class="header" id="header">
-          <p><span class="countMove">0</span> Movimiento </p>
-          <p><span class="time">0</span>min<span class="time"></span>seg</p>
-          <span>🔄</span>
-        </div>
-        <div class="parent_box" id="parent_box">
-            <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/bulbasaur.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/charmmander.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/pikachu.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/bulbasaur.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/saydo.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/charmmander.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/pikachu.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/saydo.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/skuero.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/coffing.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/miau.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/skuero.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/miau.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/pichon.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/gengar.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/pichon.png" alt="" />
-                </div>
-              </div>
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/gengar.png" alt="" />
-                </div>
-              </div>
-
-              
-      
-              <div class="box_card">
-                <div class="lados front"></div>
-                <div class="lados back">
-                  <img src="img/coffing.png" alt="" />
-                </div>
-              </div>
-        </div>
-      
+    <div class="gameboard" >
+      <div class="gameheader">
+        <p><span class="movementCounter">0</span> Moves</p>
+        <p><span class="minutes">0</span> min <span class="seconds">0</span> sec</p>
+        <span id="reset-icon">🔄</span>
       </div>
-      <div class="panel_results hidden" id="panel_results">
-          <div class="box_panel">
-            <h2>Juego de Memoria</h2>
-
-          <h3>Has Finalizado 🥳</h3>
-          <p>Hicistes <span class="countMove"></span> Movimientos</p>
-          <p class="time"></p>
-          <button id="btn_random">Jugar De Nuevo</button>
+      <div class="card-grid" id="card-grid">
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/skuero.png" alt="Bulbasaur" />
           </div>
+        </div>
+
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/charmmander.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/eevee.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/miau.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/gengar.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/miau.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/eevee.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/blatoise.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/pichon.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/skuero.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/saydo.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/gengar.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/bulbasaur.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/bulbasaur.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/pichon.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/charmmander.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/saydo.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-side card-front"></div>
+          <div class="card-side card-back">
+            <img src="img/blatoise.png" alt="Bulbasaur" />
+          </div>
+        </div>
+        <!-- (Repetir las tarjetas para completar el juego) -->
+ 
+    </div>
+    
+    <div class="results-panel hidden" id="results-panel">
+      <div class="results-box">
+        <h2>Memory Game</h2>
+        <h3>You've Finished! 🥳</h3>
+        <p>You made <span class="movementCounter">0</span> moves</p>
+        <p class="final-time"></p>
+        <button id="btn-restart">Play Again</button>
       </div>
+    </div>
+    
 
     <!-- <input type="file" id="file">
     <img src=""  id="img"alt=""> -->

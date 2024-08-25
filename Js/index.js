@@ -1,108 +1,121 @@
-const parent_box = document.getElementById("parent_box");
-const box_card = document.querySelectorAll(".box_card");
-const btn_random = document.getElementById("btn_random");
-const countMove = document.querySelectorAll(".countMove");
-const time = document.querySelectorAll(".time");
-const panel_results = document.getElementById("panel_results");
-let ArrayPoke = [];
-let ArrayCard = [];
-let Move = 0;
-let movecorrect = 0;
-let minute = 0;
+// Variables para elementos del DOM
+const cardGrid = document.getElementById("card-grid");
+const cards = document.querySelectorAll(".card");
+const btnRestart = document.getElementById("btn-restart");
+const movementCounter = document.querySelectorAll(".movementCounter");
+const minutesDisplay = document.querySelectorAll(".minutes");
+const secondsDisplay = document.querySelectorAll(".seconds");
+const resultsPanel = document.getElementById("results-panel");
+
+let matchedPairs = 0;
+let selectedCards = [];
+let selectedImages = [];
+let moveCount = 0;
+let minutes = 0;
 let seconds = 0;
 
-container.addEventListener("click", (e) => {
-  if (movecorrect === 9) {
+// Evento principal para voltear las cartas
+cardGrid.addEventListener("click", (e) => {
+  if (matchedPairs === 9) {
     setTimeout(() => {
-      panel_results.classList.remove("hidden");
+      resultsPanel.classList.remove("hidden");
     }, 1500);
   }
-  if (ArrayCard.length === 1) {
-    countMove[0].textContent = Move += 1;
-  }
-  FlipCard(e);
+
+  flipCard(e);
 });
 
-const FlipCard = (e) => {
-  let value = e.target.classList.contains("front");
-  if (value) {
-    e.target.parentElement.classList.add("flip");
-    let BoxCard = e.target.parentElement;
-    let image =
-      e.target.parentElement.children[1].children[0].getAttribute("src");
-    ArrayPoke.push(image);
-    ArrayCard.push(BoxCard);
-    VerificationArrayPoke();
-  }
-};
+// Función para voltear cartas
+function flipCard(e) {
+  const isFront = e.target.classList.contains("card-front");
+  if (isFront) {
+    e.target.parentElement.classList.add("flipped");
+    const currentCard = e.target.parentElement;
+    const imgSrc = currentCard.querySelector("img").getAttribute("src");
 
-const VerificationArrayPoke = () => {
-  if (ArrayPoke.length > 1) {
-    if (ArrayPoke[0] === ArrayPoke[1]) {
-      ArrayPoke = [];
-      ArrayCard = [];
-      movecorrect++;
-      console.log(movecorrect);
+    selectedCards.push(currentCard);
+    selectedImages.push(imgSrc);
+    if (selectedCards.length > 1) {
+      moveCounter[0].textContent = ++moveCount;
+    }
+  
+    checkMatch();
+  }
+}
+
+// Verificar si las dos cartas seleccionadas son iguales
+function checkMatch() {
+  if (selectedImages.length === 2) {
+    if (selectedImages[0] === selectedImages[1]) {
+      matchedPairs++;
+      resetSelection();
     } else {
-      CleanItems();
+      setTimeout(unflipCards, 750);
     }
   }
-};
+}
 
-const CleanItems = () => {
-  setTimeout(() => {
-    ArrayCard[0].classList.remove("flip");
-    ArrayCard[1].classList.remove("flip");
-    ArrayPoke = [];
-    ArrayCard = [];
-  }, 750);
-};
+// Desvoltear las cartas si no coinciden
+function unflipCards() {
+  selectedCards.forEach(card => card.classList.remove("flipped"));
+  resetSelection();
+}
 
-const ramdon = () => {
-  for (let index = parent_box.children.length; index >= 0; index--) {
-    parent_box.appendChild(parent_box.children[(Math.random() * index) | 0]);
+// Reiniciar la selección de cartas
+function resetSelection() {
+  selectedCards = [];
+  selectedImages = [];
+}
+
+// Función para reordenar las cartas
+function shuffleCards() {
+  for (let i = cardGrid.children.length; i >= 0; i--) {
+    cardGrid.appendChild(cardGrid.children[(Math.random() * i) | 0]);
   }
-  panel_results.classList.add("hidden");
-};
+  resultsPanel.classList.add("hidden");
+}
 
-ramdon();
-
-btn_random.addEventListener("click", () => {
-  ramdon();
-  for (let index of box_card) {
-    index.classList.remove("flip");
-  }
-  timrun();
-  minute=0;
-  seconds=0;
-  Move=0;
+// Evento para reiniciar el juego
+btnRestart.addEventListener("click", () => {
+  shuffleCards();
+  cards.forEach(card => card.classList.remove("flipped"));
+  startTimer();
+  resetGame();
 });
 
-function timrun(){
-  const temporizador = setInterval(() => {
-   
-    seconds++;
-  
-    time[1].textContent = seconds;
-  
-    if (seconds === 60) {
-      minute++;
-      seconds = 0;
-      time[0].textContent = minute;
-    }
-  
-    if (movecorrect === 9) {
-      clearInterval(temporizador);
-      movecorrect = 0;
-      panel_results.classList.remove("hidden");
-      countMove[1].textContent = Move ;
-      time[2].textContent = `en ${minute} minuto y ${seconds} segundos!!`;
+// Función para reiniciar el juego
+function resetGame() {
+  minutes = 0;
+  seconds = 0;
+  moveCount = 0;
+  matchedPairs = 0;
+  moveCounter.forEach(counter => counter.textContent = moveCount);
+}
 
+// Función para controlar el temporizador
+function startTimer() {
+  const timerInterval = setInterval(() => {
+    seconds++;
+    secondsDisplay[0].textContent = seconds;
+
+    if (seconds === 60) {
+      minutes++;
+      seconds = 0;
+      minutesDisplay[0].textContent = minutes;
+    }
+
+    if (matchedPairs === 9) {
+      clearInterval(timerInterval);
+      resultsPanel.classList.remove("hidden");
+      moveCounter[1].textContent = moveCount;
+      document.querySelector(".final-time").textContent = 
+        `in ${minutes} minutes and ${seconds} seconds!`;
     }
   }, 1000);
 }
 
-timrun();
+shuffleCards();
+
 
 /* const file = document.getElementById("file")
 const img = document.getElementById("img")
