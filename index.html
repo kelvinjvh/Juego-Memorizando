@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Juego Memoria!</title>
     <link rel="stylesheet" href="Css/estilos.css" />
   </head>
   <body>
-
-    <div class="gameboard" >
+    <div class="panelStart" id="panelStart">
+      <button class="btnStart">Iniciar Juego!!</button>
+    </div>
+    <div class="gameboard" id="gameboard">
+     
       <div class="gameheader">
-        <p><span class="movementCounter">0</span> Moves</p>
-        <p><span class="minutes">0</span> min <span class="seconds">0</span> sec</p>
-        <span id="reset-icon">🔄</span>
+        <p><span class="movementCounter">0</span> Movimientos!</p>
+        <p><span class="minutes">0</span> min <span class="seconds">0</span> segundos!!</p>
       </div>
       <div class="card-grid" id="card-grid">
         <div class="card">
@@ -128,18 +130,16 @@
         <!-- (Repetir las tarjetas para completar el juego) -->
  
     </div>
-    
     <div class="results-panel hidden" id="results-panel">
       <div class="results-box">
-        <h2>Memory Game</h2>
-        <h3>You've Finished! 🥳</h3>
-        <p>You made <span class="movementCounter">0</span> moves</p>
+        <h2>Juego Memoria</h2>
+        <h3>¡Has Finalizado! 🥳</h3>
+        <p class="movementCounter">Hicistes 0 movimientos!</p>
         <p class="final-time"></p>
         <button id="btn-restart">Play Again</button>
       </div>
     </div>
-    
-
+  </div>
     <!-- <input type="file" id="file">
     <img src=""  id="img"alt=""> -->
     <script src="Js/index.js"></script>
